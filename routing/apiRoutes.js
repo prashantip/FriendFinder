@@ -25,34 +25,33 @@ module.exports = function (app) {
         var scoreComparissonArry = [];
         for (var i = 0; i < friendList.lenght; i++) {
 
-       // comparison
-        var currentComparison = 0;
-        for (var j = 0; j < newFriend.scores.length; j++) {
-        currentComparison += Math.abs(newFriend.scores[j] - friendsList[i].scores[j]);
+            // comparison
+            var currentComparison = 0;
+            for (var j = 0; j < newFriend.scores.length; j++) {
+                currentComparison += Math.abs(newFriend.scores[j] - friendsList[i].scores[j]);
             }
-          
+
             //push each cmp diff bet'n frieds to array
-        scoreComparissonArry.push(currentComparison);   
+            scoreComparissonArry.push(currentComparison);
 
-        var bestMatchPosition =0;
-        for (var i=1; i < scoreComparissonArry.length; i++){
-         if (scoreComparisionArray[i] <= scoreComparissonArry[bestMatchPosition])
-         {
-             bestMatchPosition = i;
-         }
+            var bestMatchPosition = 0;
+            for (var i = 1; i < scoreComparissonArry.length; i++) {
+                if (scoreComparisionArray[i] <= scoreComparissonArry[bestMatchPosition]) {
+                    bestMatchPosition = i;
+                }
 
-         }
-           var bestFriendMatch = friendList[bestMatchPosition];
-      
+            }
+            var bestFriendMatch = friendList[bestMatchPosition];
 
-           res.json(bestFriendMatch);
 
-           friendsList.push(newFriend);
+            res.json(bestFriendMatch);
+
+            friendsList.push(newFriend);
 
         }
     });//module exp = func
 
-    } //post api func
+} //post api func
 
 
    // module.exports = apiRoutes;
