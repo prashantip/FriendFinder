@@ -13,7 +13,7 @@ module.exports = function (app) {
         var match = {
             name: "",
             photo: "",
-            difference: 50
+            difference: 100
         }
     
         // Calculating totals 
