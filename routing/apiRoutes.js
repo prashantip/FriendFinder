@@ -3,55 +3,41 @@ var friendList = require("../app/data/friends.js")
 module.exports = function (app) {
 
     app.get("/api/friends", function (req, res) {
-        res.json(friendList)
+        res.json(friendList);
     });
 
     app.post("/api/friends", function (req, res) {
-        var newFriend = {
-            name: req.body.name,
-            photo: req.body.photo,
-            scores: []
-        };
-        // existng firiends in the list
-        var scoresArray = [];
-        for (var i = 0; i < req.body.scores.lenght; i++) {
-            scoresArray.push(parseInt(req.body.score[i]))
+        var newFriend = req.body;
+        var newScore = 0;
+        var total = 0;
+        var match = {
+            name: "",
+            photo: "",
+            difference: 50
         }
-        newFriend.scores = scoresArray;
-
-
-        // check the new friend entry with the existing ones
-
-        var scoreComparissonArry = [];
-        for (var i = 0; i < friendList.lenght; i++) {
-
-            // comparison
-            var currentComparison = 0;
-            for (var j = 0; j < newFriend.scores.length; j++) {
-                currentComparison += Math.abs(newFriend.scores[j] - friendsList[i].scores[j]);
-            }
-
-            //push each cmp diff bet'n frieds to array
-            scoreComparissonArry.push(currentComparison);
-
-            var bestMatchPosition = 0;
-            for (var i = 1; i < scoreComparissonArry.length; i++) {
-                if (scoreComparisionArray[i] <= scoreComparissonArry[bestMatchPosition]) {
-                    bestMatchPosition = i;
+    
+        // Calculating totals 
+        for (var i = 0; i<friendList.length; i++) {
+            total = 0;
+    
+            for (var j = 0; j< friendList[i].length; j++) {
+                total += Math.abs(friendList[i].newScore[j] - newFriend.newScore[j]);
+    
+                if (total <= match.difference) {
+                    match.name = friendList[i].name,
+                    match.photo = friendList[i].photo,
+                    match.difference = total
                 }
-
             }
-            var bestFriendMatch = friendList[bestMatchPosition];
-
-
-            res.json(bestFriendMatch);
-
-            friendsList.push(newFriend);
-
         }
-    });//module exp = func
+        friendList.push(newFriend);
+        res.json(match);
+        console.log(match);
+    });
+    }
+   
 
-} //post api func
 
+   
 
-   // module.exports = apiRoutes;
+   

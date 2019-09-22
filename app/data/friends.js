@@ -31,20 +31,7 @@ var friendList = [
       "scores": [1, 4, 3, 2, 4, 2, 4, 4, 5, 3]           
         
     },
-    {
-      "name":"Mider",
-      "photo":"https://content.presspage.com/uploads/1979/1920_190225-oped-jody-wilson-raybould-fb-banner-01-650515.jpg?10000",
-      "scores": [5, 4, 3, 1, 4, 4, 2, 1, 5, 1]           
-        
-    },
-    {
-      "name":"Neil",
-      "photo":"https://cdn-images-1.medium.com/max/1600/1*BH7p-GqpXt9GK4tnW31KXA.jpeg",
-      "scores":[3, 4, 2, 3, 2, 4, 1, 1, 5, 1]           
-        
-    },
-    
-    
+      
     
     ];
     
