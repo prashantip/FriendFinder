@@ -3,4 +3,4 @@ In this activity, you'll build a compatibility-based "FriendFinder" application 
 
 You will use Express to handle routing. Make sure you deploy your app to Heroku so other users can fill it out.
 
-https://dashboard.heroku.com/apps/appfriendlist
+https://pure-badlands-12877.herokuapp.com/
