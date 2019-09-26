@@ -1,4 +1,4 @@
-var friendList = require("../app/data/friends.js")
+var friendList = require("../app/data/friends")
 
 module.exports = function (app) {
 
@@ -7,21 +7,23 @@ module.exports = function (app) {
     });
 
     app.post("/api/friends", function (req, res) {
-        var newFriend = req.body;
-        var newScore = 0;
-        var total = 0;
+        // var newFriend = req.body;
+        // var newScore = 0;
+        // var total = 0;
         var match = {
             name: "",
             photo: "",
-            difference: 100
+            difference: 50
         }
-    
+        var newFriend = req.body;
+        var newScore = newFriend.scores;
+        var total = 0;
         // Calculating totals 
         for (var i = 0; i<friendList.length; i++) {
             total = 0;
     
-            for (var j = 0; j< friendList[i].length; j++) {
-                total += Math.abs(friendList[i].newScore[j] - newFriend.newScore[j]);
+            for (var j = 0; j< friendList[i].scores.length; j++) {
+                total += Math.abs(friendList [i].scores[i] - newScore[j]);
     
                 if (total <= match.difference) {
                     match.name = friendList[i].name,
@@ -35,8 +37,7 @@ module.exports = function (app) {
         console.log(match);
     });
     }
-   
-
+    
 
    
 
